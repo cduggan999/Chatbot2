@@ -1,0 +1,32 @@
+package aI;
+
+public class Medium extends Player_AI{
+	
+	//constructor
+	public Medium(String name, int chips){
+		super(name, chips);
+		
+		this.startingHandRange =6;
+		this.speculativeHandRange = 6;
+		this.preFlopAgression = 50; //player raises 50% of the time & calls 50%
+		this.positionalAwareness = 1;
+
+		//Fold/Call/Raise Percentages given a Rate of Return(RoR) of less than 1
+		this.RoR_1_Fold_Percentage = 70; //Fold 70%
+		this.RoR_1_Call_Percentage = 0;	//Call 0%, Raise 30%(bluff)
+		/*No need for stating Raise Percentage as it will simply be 100% - (Fold & Call)
+		percentages*/
+		
+		//Fold/Call/Raise Percentages given a RoR of between 1 and 1.2
+		this.RoR_1_2_Fold_Percentage = 0;
+		this.RoR_1_2_Call_Percentage = 70;
+		
+		//Fold/Call/Raise Percentages given a RoR of between 1.2 and 1.4
+		this.RoR_1_4_Fold_Percentage = 0;
+		this.RoR_1_4_Call_Percentage = 55;
+		
+		//Fold/Call/Raise Percentages given a RoR of 1.4 and over
+		this.RoR_Over_1_4_Fold_Percentage = 0;
+		this.RoR_Over_1_4_Call_Percentage = 40;
+	}  
+}
